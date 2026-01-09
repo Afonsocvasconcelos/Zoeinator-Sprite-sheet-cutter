@@ -34,6 +34,20 @@
             overflow-y: auto;
         }
 
+        .sidebar::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(65, 72, 104, 0.75);
+            border-radius: 10px;
+            border: 2px solid #24283b;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: #24283b;
+        }
+
         .sidebar h1 {
             font-size: 1.6rem;
             font-weight: 800;
@@ -75,6 +89,74 @@
             border-bottom: 1px solid #414868;
         }
 
+        .sidebar-section {
+            background: linear-gradient(180deg, rgba(31, 35, 53, 0.35), rgba(36, 40, 59, 0));
+        }
+
+        .section-body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .section-body {
+            margin-top: 2px;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: #414868;
+            opacity: 0.7;
+            margin: 6px 0;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .stat-card {
+            background: #1a1b26;
+            border-radius: 10px;
+            padding: 14px;
+            border: 1px solid #414868;
+            min-height: 72px;
+        }
+
+        .stat-card .label {
+            color: #565f89;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-card .value {
+            color: #00d9ff;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.35);
+            margin-top: 4px;
+        }
+
+        .stat-card.compact .value {
+            font-size: 1.05rem;
+        }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn-grid .btn {
+            width: 100%;
+        }
+
+        .sidebar-section > button.btn {
+            width: 100%;
+        }
+
         .sidebar-section:last-child {
             border-bottom: none;
         }
@@ -86,6 +168,12 @@
             letter-spacing: 1.5px;
             margin: 0 0 12px 0;
             font-weight: 700;
+        }
+
+        .sidebar h2 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .btn {
@@ -100,6 +188,10 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+        }
+
+        .btn {
+            min-height: 44px;
         }
 
         .btn-primary {
@@ -150,6 +242,7 @@
             background: #1a1b26;
             padding: 4px;
             border-radius: 8px;
+            border: 1px solid #414868;
         }
 
         .mode-toggle .btn {
@@ -172,6 +265,12 @@
             padding: 16px;
             font-size: 0.85rem;
             border: 1px solid #414868;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
         }
 
         .info-box .label {
@@ -203,6 +302,12 @@
             color: #9aa5ce;
         }
 
+        .auto-detect-options label {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
         .auto-detect-options input[type="number"] {
             width: 100%;
             padding: 10px;
@@ -211,6 +316,22 @@
             background: #24283b;
             color: #c0caf5;
             font-size: 0.9rem;
+        }
+
+        .auto-detect-options select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #414868;
+            border-radius: 6px;
+            background: #24283b;
+            color: #c0caf5;
+            font-size: 0.9rem;
+        }
+
+        .auto-detect-options select:focus {
+            outline: none;
+            border-color: #00d9ff;
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
         }
 
         .auto-detect-options input[type="number"]:focus {
@@ -420,6 +541,264 @@
             color: #c0caf5;
         }
 
+        /* Utility UI */
+        .control-row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .control-row label {
+            font-size: 0.85rem;
+            color: #9aa5ce;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .control-row select,
+        .control-row input[type="checkbox"] {
+            accent-color: #00d9ff;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #414868;
+            border-radius: 6px;
+            background: #24283b;
+            color: #c0caf5;
+            font-size: 0.9rem;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: #00d9ff;
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+        }
+
+        .color-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .select-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        input[type="color"].color-picker {
+            width: 46px;
+            height: 40px;
+            padding: 0;
+            border: 2px solid #414868;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        input[type="color"].color-picker::-webkit-color-swatch-wrapper {
+            padding: 4px;
+        }
+
+        input[type="color"].color-picker::-webkit-color-swatch {
+            border: none;
+            border-radius: 6px;
+        }
+
+        input[type="color"].color-picker:focus {
+            outline: none;
+            border-color: #00d9ff;
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+        }
+
+        .control-row select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #414868;
+            border-radius: 6px;
+            background: #24283b;
+            color: #c0caf5;
+            font-size: 0.9rem;
+        }
+
+        .control-row select:focus {
+            outline: none;
+            border-color: #00d9ff;
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+        }
+
+        .toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px 12px;
+            background: #1a1b26;
+            border: 1px solid #414868;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #9aa5ce;
+        }
+
+        .toggle span {
+            font-weight: 650;
+            color: #9aa5ce;
+        }
+
+        .toggle input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 44px;
+            height: 24px;
+            border-radius: 999px;
+            background: #414868;
+            border: 1px solid #565f89;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.15s ease, border-color 0.15s ease;
+        }
+
+        .toggle input[type="checkbox"]::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 18px;
+            height: 18px;
+            border-radius: 999px;
+            background: #c0caf5;
+            transition: transform 0.15s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+        }
+
+        .toggle input[type="checkbox"]:checked {
+            background: #00d9ff;
+            border-color: #00d9ff;
+        }
+
+        .toggle input[type="checkbox"]:checked::after {
+            transform: translateX(20px);
+        }
+
+        .muted-hint {
+            color: #565f89;
+            font-size: 0.8rem;
+            line-height: 1.25;
+        }
+
+        /* Background modes */
+        .canvas-container.bg-checker {
+            background: #16161e;
+            background-image:
+                linear-gradient(45deg, #1a1b26 25%, transparent 25%),
+                linear-gradient(-45deg, #1a1b26 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #1a1b26 75%),
+                linear-gradient(-45deg, transparent 75%, #1a1b26 75%);
+            background-size: 24px 24px;
+            background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+        }
+
+        .canvas-container.bg-black {
+            background: #000;
+            background-image: none;
+        }
+
+        .canvas-container.bg-white {
+            background: #fff;
+            background-image: none;
+        }
+
+        /* Floating animation preview */
+        .floating-panel {
+            position: fixed;
+            left: 320px;
+            bottom: 20px;
+            width: 260px;
+            background: #24283b;
+            border: 2px solid #414868;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            z-index: 900;
+            display: none;
+            user-select: none;
+        }
+
+        .floating-panel.visible {
+            display: block;
+        }
+
+        .floating-panel .header {
+            padding: 10px 12px;
+            border-bottom: 1px solid #414868;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: move;
+        }
+
+        .floating-panel .header .title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .floating-panel .header .title {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .floating-panel .header button {
+            background: transparent;
+            border: 2px solid #414868;
+            color: #c0caf5;
+            border-radius: 8px;
+            padding: 4px 8px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .floating-panel .content {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #previewCanvas {
+            width: 100%;
+            height: 180px;
+            background: #1a1b26;
+            border: 1px solid #414868;
+            border-radius: 8px;
+        }
+
+        .mini-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .mini-row .btn {
+            padding: 8px 10px;
+            font-size: 0.85rem;
+            border-radius: 8px;
+        }
+
+        .mini-row input[type="number"] {
+            width: 70px;
+            padding: 8px 10px;
+            border: 2px solid #414868;
+            border-radius: 8px;
+            background: #1a1b26;
+            color: #c0caf5;
+        }
+
         .toast.success {
             border-left-color: #9ece6a;
         }
@@ -449,44 +828,141 @@
 
         <div class="sidebar-section">
             <h2>Project</h2>
-            <button class="btn btn-secondary" id="loadImageBtn">📁 Load Image</button>
+            <div class="section-body">
+                <button class="btn btn-secondary" id="loadImageBtn">📁 Load Image</button>
+                <label class="muted-hint" for="sheetIdInput">Sheet ID (used for export names)</label>
+                <input class="text-input" id="sheetIdInput" type="text" placeholder="e.g. player_run" autocomplete="off">
+            </div>
             <input type="file" id="fileInput" accept="image/*" style="display: none;">
         </div>
 
         <div class="sidebar-section">
+            <h2>Status</h2>
+            <div class="section-body">
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="label">Zoom</div>
+                        <div class="value" id="zoomLevel">100%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Slices</div>
+                        <div class="value" id="sliceCount">0</div>
+                    </div>
+                    <div class="stat-card compact">
+                        <div class="label">Selected</div>
+                        <div class="value" id="selectedCount">0</div>
+                    </div>
+                    <div class="stat-card compact">
+                        <div class="label">Mode</div>
+                        <div class="value" id="modeLabel">Manual</div>
+                    </div>
+                </div>
+
+                <div class="btn-grid">
+                    <button class="btn btn-secondary" id="resetViewBtn" disabled>🧭 Reset View</button>
+                    <button class="btn btn-danger" id="clearSlicesBtn" disabled>🗑️ Clear All</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <h2>View</h2>
+            <div class="section-body">
+                <div class="btn-grid">
+                    <label class="toggle"><span>Mirror X</span><input type="checkbox" id="mirrorXToggle"></label>
+                    <label class="toggle"><span>Mirror Y</span><input type="checkbox" id="mirrorYToggle"></label>
+                </div>
+
+                <div class="select-row">
+                    <label for="bgMode" class="muted-hint">Canvas background</label>
+                    <select id="bgMode">
+                        <option value="checker" selected>Checker (Transparency)</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                    </select>
+                </div>
+
+                <label class="toggle"><span>Image Background</span><input type="checkbox" id="imageBgToggle"></label>
+                <div class="color-row">
+                    <div class="muted-hint">Background color (display only)</div>
+                    <input type="color" class="color-picker" id="imageBgColor" value="#000000">
+                </div>
+
+                <div class="section-divider"></div>
+
+                <label class="toggle"><span>Onion Skin</span><input type="checkbox" id="onionSkinToggle" checked></label>
+                <label class="toggle"><span>Smart Snapping</span><input type="checkbox" id="smartSnapToggle" checked></label>
+                <label class="toggle"><span>Pivot Edit Mode</span><input type="checkbox" id="pivotEditToggle"></label>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
             <h2>Tools</h2>
-        <div class="mode-toggle">
-            <button class="btn btn-secondary active" id="manualModeBtn">✏️ Manual</button>
-            <button class="btn btn-secondary" id="autoModeBtn">🔍 Auto-Detect</button>
-        </div>
+            <div class="section-body">
+                <div class="mode-toggle">
+                    <button class="btn btn-secondary active" id="manualModeBtn">✏️ Manual</button>
+                    <button class="btn btn-secondary" id="autoModeBtn">🔍 Auto-Detect</button>
+                </div>
 
-        <div class="auto-detect-options" id="autoDetectOptions" style="display: none;">
-            <label>
-                Alpha Threshold (0-255):
-                <input type="number" id="alphaThreshold" value="10" min="0" max="255">
-            </label>
-            <label>
-                Min Size (px):
-                <input type="number" id="minSize" value="5" min="1">
-            </label>
-            <button class="btn btn-secondary" id="runAutoDetect">🚀 Detect Sprites</button>
-        </div>
+                <div class="auto-detect-options" id="autoDetectOptions" style="display: none;">
+                    <label>
+                        Alpha Threshold (0-255):
+                        <input type="number" id="alphaThreshold" value="10" min="0" max="255">
+                    </label>
+                    <label>
+                        Min Size (px):
+                        <input type="number" id="minSize" value="5" min="1">
+                    </label>
+                    <label>
+                        X Order:
+                        <select id="detectOrder">
+                            <option value="ltr" selected>Left → Right</option>
+                            <option value="rtl">Right → Left</option>
+                        </select>
+                    </label>
+
+                    <div class="section-divider"></div>
+
+                    <label>
+                        Noise Cleanup (px):
+                        <input type="number" id="noiseCleanup" value="0" min="0" max="6">
+                    </label>
+                    <label>
+                        Bridge Gaps (px):
+                        <input type="number" id="bridgeGaps" value="0" min="0" max="10">
+                    </label>
+                    <label>
+                        Merge Nearby (px):
+                        <input type="number" id="mergeNearby" value="0" min="0" max="25">
+                    </label>
+                    <label>
+                        Color Tolerance (0-255):
+                        <input type="number" id="colorTolerance" value="40" min="0" max="255">
+                    </label>
+
+                    <label class="toggle" style="margin-top: 6px;"><span>Show Oriented Boxes (OBB)</span><input type="checkbox" id="showObbToggle"></label>
+                    <button class="btn btn-secondary" id="runAutoDetect">🚀 Detect Sprites</button>
+                </div>
+
+                <div class="muted-hint">Draw rough boxes, then refine with handles or Auto-Trim.</div>
+            </div>
         </div>
 
         <div class="sidebar-section">
-            <h2>Slices</h2>
-        <div class="info-box">
-            <div class="label">Total Slices</div>
-            <div class="value" id="sliceCount">0</div>
-        </div>
+            <h2>Export</h2>
+            <div class="section-body">
+                <div class="btn-grid">
+                    <button class="btn btn-secondary" id="deleteSelectedBtn" disabled>❌ Delete</button>
+                    <button class="btn btn-secondary" id="autoTrimBtn" disabled>✂️ Auto-Trim</button>
+                </div>
 
-        <button class="btn btn-danger" id="clearSlicesBtn" disabled>🗑️ Clear All Slices</button>
-        <button class="btn btn-secondary" id="deleteSelectedBtn" disabled>❌ Delete Selected</button>
-        </div>
+                <div class="btn-grid">
+                    <button class="btn btn-secondary" id="detectDuplicatesBtn" disabled>🧬 Duplicates</button>
+                    <button class="btn btn-secondary" id="togglePreviewBtn" disabled>🎞️ Preview</button>
+                </div>
 
-        <div class="sidebar-section">
-            <h2>Actions</h2>
-            <button class="btn btn-primary" id="exportBtn" disabled>📦 Export ZIP</button>
+                <button class="btn btn-primary" id="exportBtn" disabled>📦 Export ZIP</button>
+            </div>
         </div>
 
         <div class="sidebar-section">
@@ -496,13 +972,16 @@
                     <li><kbd>Delete</kbd> / <kbd>Backspace</kbd> - Remove selected slice</li>
                     <li><kbd>Escape</kbd> - Deselect</li>
                     <li><kbd>Ctrl+A</kbd> - Select all slices</li>
+                    <li><kbd>←</kbd><kbd>↑</kbd><kbd>→</kbd><kbd>↓</kbd> - Nudge selected slice(s) by 1px</li>
+                    <li><kbd>Mouse Wheel</kbd> - Zoom</li>
+                    <li><kbd>Middle Mouse</kbd> - Pan</li>
                 </ul>
             </div>
         </div>
     </aside>
 
     <!-- Main Canvas Area -->
-    <main class="canvas-container" id="canvasContainer">
+    <main class="canvas-container bg-checker" id="canvasContainer">
         <div class="drop-zone" id="dropZone">
             <div class="drop-zone-content">
                 <div class="drop-zone-icon">🖼️</div>
@@ -527,19 +1006,91 @@
     <!-- Toast Container -->
     <div class="toast-container" id="toastContainer"></div>
 
+    <!-- Floating Preview Panel -->
+    <div class="floating-panel" id="previewPanel">
+        <div class="header" id="previewPanelHeader">
+            <div class="title">Animation Preview</div>
+            <button id="closePreviewBtn" title="Close">✕</button>
+        </div>
+        <div class="content">
+            <canvas id="previewCanvas" width="240" height="180"></canvas>
+            <div class="mini-row">
+                <button class="btn btn-secondary" id="previewUseSelectionBtn">Use Selection</button>
+                <button class="btn btn-secondary" id="previewPlayPauseBtn">Play</button>
+            </div>
+            <div class="mini-row">
+                <span style="font-size: 0.85rem; color: #9aa5ce;">FPS</span>
+                <input type="number" id="previewFps" min="1" max="60" value="12">
+                <span style="font-size: 0.85rem; color: #9aa5ce;">Frames: <span id="previewFrameCount">0</span></span>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ============================================
         // STATE MANAGEMENT
         // ============================================
         const state = {
             image: null,
+            imageData: null, // ImageData for alpha/pixel ops
+            sheetId: 'sprites',
             slices: [], // Array of { x, y, width, height, id }
             selectedSliceIds: new Set(),
+            activeSliceId: null,
             mode: 'manual', // 'manual' or 'auto'
             isDragging: false,
             dragStart: { x: 0, y: 0 },
             dragCurrent: { x: 0, y: 0 },
-            nextSliceId: 1
+            nextSliceId: 1,
+            view: {
+                scale: 1,
+                minScale: 0.25,
+                maxScale: 32,
+                offsetX: 0,
+                offsetY: 0,
+                mirrorX: false,
+                mirrorY: false
+            },
+            pan: {
+                active: false,
+                startClientX: 0,
+                startClientY: 0,
+                startOffsetX: 0,
+                startOffsetY: 0
+            },
+            resize: {
+                active: false,
+                sliceId: null,
+                handle: null,
+                start: null,
+                startRect: null,
+                startPivotAbs: null
+            },
+            preview: {
+                visible: false,
+                frameIds: [],
+                isPlaying: false,
+                fps: 12,
+                timer: null,
+                currentIndex: 0,
+                panelDrag: {
+                    active: false,
+                    startClientX: 0,
+                    startClientY: 0,
+                    startLeft: 0,
+                    startTop: 0
+                }
+            },
+            pivots: new Map(), // sliceId -> { x, y } (local to slice)
+            sliceMeta: new Map(), // sliceId -> { obb?, parentId?, childrenIds? }
+            options: {
+                onionSkin: true,
+                smartSnap: true,
+                pivotEdit: false,
+                imageBgEnabled: false,
+                imageBgColor: '#000000',
+                showObb: false
+            }
         };
 
         // ============================================
@@ -554,16 +1105,46 @@
             fileInput: document.getElementById('fileInput'),
             dropFileInput: document.getElementById('dropFileInput'),
             loadImageBtn: document.getElementById('loadImageBtn'),
+            sheetIdInput: document.getElementById('sheetIdInput'),
             manualModeBtn: document.getElementById('manualModeBtn'),
             autoModeBtn: document.getElementById('autoModeBtn'),
             autoDetectOptions: document.getElementById('autoDetectOptions'),
             runAutoDetect: document.getElementById('runAutoDetect'),
             alphaThreshold: document.getElementById('alphaThreshold'),
             minSize: document.getElementById('minSize'),
+            detectOrder: document.getElementById('detectOrder'),
+            noiseCleanup: document.getElementById('noiseCleanup'),
+            bridgeGaps: document.getElementById('bridgeGaps'),
+            mergeNearby: document.getElementById('mergeNearby'),
+            colorTolerance: document.getElementById('colorTolerance'),
+            showObbToggle: document.getElementById('showObbToggle'),
             sliceCount: document.getElementById('sliceCount'),
+            selectedCount: document.getElementById('selectedCount'),
+            modeLabel: document.getElementById('modeLabel'),
+            zoomLevel: document.getElementById('zoomLevel'),
+            resetViewBtn: document.getElementById('resetViewBtn'),
+            mirrorXToggle: document.getElementById('mirrorXToggle'),
+            mirrorYToggle: document.getElementById('mirrorYToggle'),
+            imageBgToggle: document.getElementById('imageBgToggle'),
+            imageBgColor: document.getElementById('imageBgColor'),
             clearSlicesBtn: document.getElementById('clearSlicesBtn'),
             deleteSelectedBtn: document.getElementById('deleteSelectedBtn'),
             exportBtn: document.getElementById('exportBtn'),
+            detectDuplicatesBtn: document.getElementById('detectDuplicatesBtn'),
+            togglePreviewBtn: document.getElementById('togglePreviewBtn'),
+            autoTrimBtn: document.getElementById('autoTrimBtn'),
+            bgMode: document.getElementById('bgMode'),
+            onionSkinToggle: document.getElementById('onionSkinToggle'),
+            smartSnapToggle: document.getElementById('smartSnapToggle'),
+            pivotEditToggle: document.getElementById('pivotEditToggle'),
+            previewPanel: document.getElementById('previewPanel'),
+            previewPanelHeader: document.getElementById('previewPanelHeader'),
+            closePreviewBtn: document.getElementById('closePreviewBtn'),
+            previewCanvas: document.getElementById('previewCanvas'),
+            previewUseSelectionBtn: document.getElementById('previewUseSelectionBtn'),
+            previewPlayPauseBtn: document.getElementById('previewPlayPauseBtn'),
+            previewFps: document.getElementById('previewFps'),
+            previewFrameCount: document.getElementById('previewFrameCount'),
             loadingOverlay: document.getElementById('loadingOverlay'),
             toastContainer: document.getElementById('toastContainer')
         };
@@ -590,22 +1171,294 @@
             const hasImage = state.image !== null;
             const hasSlices = state.slices.length > 0;
             const hasSelection = state.selectedSliceIds.size > 0;
+            const singleSelection = state.selectedSliceIds.size === 1;
 
             elements.dropZone.classList.toggle('hidden', hasImage);
             elements.clearSlicesBtn.disabled = !hasSlices;
             elements.deleteSelectedBtn.disabled = !hasSelection;
             elements.exportBtn.disabled = !hasSlices;
+            elements.detectDuplicatesBtn.disabled = !hasSlices;
+            elements.togglePreviewBtn.disabled = !hasSlices;
+            elements.autoTrimBtn.disabled = !singleSelection;
+            elements.resetViewBtn.disabled = !hasImage;
             elements.sliceCount.textContent = state.slices.length;
+            if (elements.selectedCount) elements.selectedCount.textContent = state.selectedSliceIds.size;
+            if (elements.modeLabel) elements.modeLabel.textContent = state.mode === 'auto' ? 'Auto' : 'Manual';
+        }
+
+        function clamp(value, min, max) {
+            return Math.max(min, Math.min(max, value));
+        }
+
+        function applyViewTransform() {
+            const s = state.view.scale;
+            const tx = state.view.offsetX;
+            const ty = state.view.offsetY;
+            const w = elements.mainCanvas.width || 0;
+            const h = elements.mainCanvas.height || 0;
+            const mx = state.view.mirrorX ? -1 : 1;
+            const my = state.view.mirrorY ? -1 : 1;
+            const mirrorTx = state.view.mirrorX ? w : 0;
+            const mirrorTy = state.view.mirrorY ? h : 0;
+            elements.canvasWrapper.style.transformOrigin = '0 0';
+            elements.canvasWrapper.style.transform = `translate(${tx}px, ${ty}px) scale(${s}) translate(${mirrorTx}px, ${mirrorTy}px) scale(${mx}, ${my})`;
+
+            if (elements.zoomLevel) {
+                elements.zoomLevel.textContent = `${Math.round(s * 100)}%`;
+            }
+        }
+
+        function resetView() {
+            state.view.scale = 1;
+            state.view.offsetX = 0;
+            state.view.offsetY = 0;
+            applyViewTransform();
+            renderOverlay();
+        }
+
+        function getImageCoordinatesFromClient(clientX, clientY) {
+            const rect = elements.canvasWrapper.getBoundingClientRect();
+            const s = state.view.scale;
+            let x = (clientX - rect.left) / s;
+            let y = (clientY - rect.top) / s;
+
+            const w = elements.mainCanvas.width || 0;
+            const h = elements.mainCanvas.height || 0;
+            if (state.view.mirrorX) x = w - x;
+            if (state.view.mirrorY) y = h - y;
+            return { x, y };
+        }
+
+        function sanitizeSheetId(value) {
+            const v = (value || '').trim();
+            if (!v) return 'sprites';
+            return v
+                .replace(/\s+/g, '_')
+                .replace(/[^a-zA-Z0-9_-]/g, '_')
+                .replace(/_+/g, '_')
+                .slice(0, 64);
+        }
+
+        function renderMainCanvas() {
+            if (!state.image) return;
+            mainCtx.clearRect(0, 0, elements.mainCanvas.width, elements.mainCanvas.height);
+            if (state.options.imageBgEnabled) {
+                mainCtx.fillStyle = state.options.imageBgColor || '#000000';
+                mainCtx.fillRect(0, 0, elements.mainCanvas.width, elements.mainCanvas.height);
+            }
+            mainCtx.drawImage(state.image, 0, 0);
         }
 
         function getCanvasCoordinates(e) {
-            const rect = elements.mainCanvas.getBoundingClientRect();
-            const scrollLeft = elements.canvasContainer.scrollLeft;
-            const scrollTop = elements.canvasContainer.scrollTop;
-            
+            return getImageCoordinatesFromClient(e.clientX, e.clientY);
+        }
+
+        function clampRectToImage(rect) {
+            if (!state.image) return rect;
+            let x = Math.round(rect.x);
+            let y = Math.round(rect.y);
+            let width = Math.round(rect.width);
+            let height = Math.round(rect.height);
+            x = clamp(x, 0, state.image.width);
+            y = clamp(y, 0, state.image.height);
+            width = clamp(width, 0, state.image.width - x);
+            height = clamp(height, 0, state.image.height - y);
+            return { x, y, width, height };
+        }
+
+        function ensureImageData() {
+            if (!state.image) return null;
+            if (state.imageData) return state.imageData;
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = state.image.width;
+            tempCanvas.height = state.image.height;
+            const tempCtx = tempCanvas.getContext('2d', { willReadFrequently: true });
+            tempCtx.drawImage(state.image, 0, 0);
+            state.imageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+            return state.imageData;
+        }
+
+        function clampInt(value, min, max) {
+            const n = parseInt(value);
+            if (Number.isNaN(n)) return min;
+            return clamp(n, min, max);
+        }
+
+        function dilateMask(mask, width, height, radius) {
+            if (radius <= 0) return mask;
+            const out = new Uint8Array(mask.length);
+            for (let idx = 0; idx < mask.length; idx++) {
+                if (!mask[idx]) continue;
+                const x = idx % width;
+                const y = (idx / width) | 0;
+                const x0 = Math.max(0, x - radius);
+                const x1 = Math.min(width - 1, x + radius);
+                const y0 = Math.max(0, y - radius);
+                const y1 = Math.min(height - 1, y + radius);
+                for (let yy = y0; yy <= y1; yy++) {
+                    const row = yy * width;
+                    for (let xx = x0; xx <= x1; xx++) {
+                        out[row + xx] = 1;
+                    }
+                }
+            }
+            return out;
+        }
+
+        function erodeMask(mask, width, height, radius) {
+            if (radius <= 0) return mask;
+            const out = new Uint8Array(mask.length);
+            for (let idx = 0; idx < mask.length; idx++) {
+                if (!mask[idx]) continue;
+                const x = idx % width;
+                const y = (idx / width) | 0;
+                const x0 = x - radius;
+                const x1 = x + radius;
+                const y0 = y - radius;
+                const y1 = y + radius;
+                let ok = true;
+                for (let yy = y0; yy <= y1 && ok; yy++) {
+                    if (yy < 0 || yy >= height) { ok = false; break; }
+                    const row = yy * width;
+                    for (let xx = x0; xx <= x1; xx++) {
+                        if (xx < 0 || xx >= width) { ok = false; break; }
+                        if (!mask[row + xx]) { ok = false; break; }
+                    }
+                }
+                if (ok) out[idx] = 1;
+            }
+            return out;
+        }
+
+        function openMask(mask, width, height, radius) {
+            // opening removes small noise
+            return dilateMask(erodeMask(mask, width, height, radius), width, height, radius);
+        }
+
+        function closeMask(mask, width, height, radius) {
+            // closing bridges small gaps
+            return erodeMask(dilateMask(mask, width, height, radius), width, height, radius);
+        }
+
+        function colorDistance255(a, b) {
+            const dr = a.r - b.r;
+            const dg = a.g - b.g;
+            const db = a.b - b.b;
+            return Math.sqrt(dr * dr + dg * dg + db * db);
+        }
+
+        function bboxGapDistance(a, b) {
+            const ax2 = a.x + a.width;
+            const ay2 = a.y + a.height;
+            const bx2 = b.x + b.width;
+            const by2 = b.y + b.height;
+            const dx = Math.max(0, Math.max(a.x - bx2, b.x - ax2));
+            const dy = Math.max(0, Math.max(a.y - by2, b.y - ay2));
+            return Math.sqrt(dx * dx + dy * dy);
+        }
+
+        function computeObbFromPoints(points) {
+            if (!points || points.length < 8) return null;
+            let sumX = 0, sumY = 0;
+            const n = points.length / 2;
+            for (let i = 0; i < points.length; i += 2) {
+                sumX += points[i];
+                sumY += points[i + 1];
+            }
+            const cx = sumX / n;
+            const cy = sumY / n;
+            let sxx = 0, syy = 0, sxy = 0;
+            for (let i = 0; i < points.length; i += 2) {
+                const dx = points[i] - cx;
+                const dy = points[i + 1] - cy;
+                sxx += dx * dx;
+                syy += dy * dy;
+                sxy += dx * dy;
+            }
+            sxx /= n;
+            syy /= n;
+            sxy /= n;
+            const angle = 0.5 * Math.atan2(2 * sxy, sxx - syy);
+            const cos = Math.cos(angle);
+            const sin = Math.sin(angle);
+
+            let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+            for (let i = 0; i < points.length; i += 2) {
+                const dx = points[i] - cx;
+                const dy = points[i + 1] - cy;
+                const rx = dx * cos + dy * sin;
+                const ry = -dx * sin + dy * cos;
+                if (rx < minX) minX = rx;
+                if (rx > maxX) maxX = rx;
+                if (ry < minY) minY = ry;
+                if (ry > maxY) maxY = ry;
+            }
+
+            const w = maxX - minX;
+            const h = maxY - minY;
+            // corners in rotated space, then back to image space
+            const cornersR = [
+                { x: minX, y: minY },
+                { x: maxX, y: minY },
+                { x: maxX, y: maxY },
+                { x: minX, y: maxY }
+            ];
+            const corners = cornersR.map(p => {
+                const x = cx + p.x * cos - p.y * sin;
+                const y = cy + p.x * sin + p.y * cos;
+                return { x, y };
+            });
+
+            return { cx, cy, w, h, angle, corners };
+        }
+
+        function alphaAt(x, y) {
+            const imgData = ensureImageData();
+            if (!imgData) return 0;
+            if (x < 0 || y < 0 || x >= imgData.width || y >= imgData.height) return 0;
+            const idx = (Math.floor(y) * imgData.width + Math.floor(x)) * 4 + 3;
+            return imgData.data[idx];
+        }
+
+        function trimRectToContent(rect, threshold) {
+            const imgData = ensureImageData();
+            if (!imgData) return null;
+
+            const t = typeof threshold === 'number' ? threshold : 10;
+            const r = clampRectToImage(rect);
+            if (r.width <= 0 || r.height <= 0) return null;
+
+            const w = imgData.width;
+            const data = imgData.data;
+
+            let minX = r.x + r.width;
+            let minY = r.y + r.height;
+            let maxX = r.x - 1;
+            let maxY = r.y - 1;
+
+            for (let y = r.y; y < r.y + r.height; y++) {
+                let rowIdx = (y * w + r.x) * 4;
+                for (let x = r.x; x < r.x + r.width; x++) {
+                    const a = data[rowIdx + 3];
+                    if (a > t) {
+                        if (x < minX) minX = x;
+                        if (x > maxX) maxX = x;
+                        if (y < minY) minY = y;
+                        if (y > maxY) maxY = y;
+                    }
+                    rowIdx += 4;
+                }
+            }
+
+            if (maxX < minX || maxY < minY) {
+                return null;
+            }
+
             return {
-                x: e.clientX - rect.left + scrollLeft,
-                y: e.clientY - rect.top + scrollTop
+                x: minX,
+                y: minY,
+                width: (maxX - minX + 1),
+                height: (maxY - minY + 1)
             };
         }
 
@@ -623,9 +1476,21 @@
                 const img = new Image();
                 img.onload = () => {
                     state.image = img;
+                    state.imageData = null;
+                    const baseName = (file && file.name) ? file.name.replace(/\.[^.]+$/, '') : 'sprites';
+                    state.sheetId = sanitizeSheetId(baseName);
+                    if (elements.sheetIdInput) elements.sheetIdInput.value = state.sheetId;
                     state.slices = [];
                     state.selectedSliceIds.clear();
+                    state.activeSliceId = null;
                     state.nextSliceId = 1;
+                    state.pivots.clear();
+
+                    // Reset view
+                    state.view.scale = 1;
+                    state.view.offsetX = 0;
+                    state.view.offsetY = 0;
+                    applyViewTransform();
 
                     // Resize canvases
                     elements.mainCanvas.width = img.width;
@@ -634,7 +1499,8 @@
                     elements.overlayCanvas.height = img.height;
 
                     // Draw image
-                    mainCtx.drawImage(img, 0, 0);
+                    renderMainCanvas();
+                    ensureImageData();
                     renderOverlay();
                     updateUI();
                     showToast(`Image loaded: ${img.width}x${img.height}px`, 'success');
@@ -650,9 +1516,41 @@
         function renderOverlay() {
             overlayCtx.clearRect(0, 0, elements.overlayCanvas.width, elements.overlayCanvas.height);
 
+            // Onion skin (previous slice) under the selected one
+            if (state.options.onionSkin && state.selectedSliceIds.size === 1 && state.image) {
+                const activeId = [...state.selectedSliceIds][0];
+                const activeSlice = state.slices.find(s => s.id === activeId);
+                if (activeSlice) {
+                    const sorted = [...state.slices].sort((a, b) => a.id - b.id);
+                    const idx = sorted.findIndex(s => s.id === activeId);
+                    const prev = idx > 0 ? sorted[idx - 1] : null;
+
+                    if (prev) {
+                        const activePivot = state.pivots.get(activeSlice.id) || null;
+                        const prevPivot = state.pivots.get(prev.id) || null;
+                        let drawX = activeSlice.x;
+                        let drawY = activeSlice.y;
+                        if (activePivot && prevPivot) {
+                            drawX = activeSlice.x + activePivot.x - prevPivot.x;
+                            drawY = activeSlice.y + activePivot.y - prevPivot.y;
+                        }
+
+                        overlayCtx.save();
+                        overlayCtx.globalAlpha = 0.30;
+                        overlayCtx.drawImage(
+                            state.image,
+                            prev.x, prev.y, prev.width, prev.height,
+                            drawX, drawY, prev.width, prev.height
+                        );
+                        overlayCtx.restore();
+                    }
+                }
+            }
+
             // Draw existing slices
             state.slices.forEach(slice => {
                 const isSelected = state.selectedSliceIds.has(slice.id);
+                const meta = state.sliceMeta.get(slice.id) || null;
                 
                 // Fill
                 overlayCtx.fillStyle = isSelected 
@@ -672,7 +1570,7 @@
                 );
 
                 // Label with background
-                const labelText = `#${slice.id}`;
+                const labelText = meta && meta.parentId ? `#${slice.id} p#${meta.parentId}` : `#${slice.id}`;
                 overlayCtx.font = 'bold 11px sans-serif';
                 const textMetrics = overlayCtx.measureText(labelText);
                 const labelPadding = 4;
@@ -687,6 +1585,41 @@
                 
                 overlayCtx.fillStyle = '#ffffff';
                 overlayCtx.fillText(labelText, slice.x + labelPadding, slice.y - 5);
+
+                // Oriented bounding box overlay (auto-detect metadata)
+                if (state.options.showObb && meta && meta.obb && meta.obb.corners) {
+                    overlayCtx.save();
+                    overlayCtx.strokeStyle = isSelected ? '#00d9ff' : 'rgba(0, 217, 255, 0.7)';
+                    overlayCtx.lineWidth = 1 / state.view.scale;
+                    overlayCtx.setLineDash([6 / state.view.scale, 4 / state.view.scale]);
+                    overlayCtx.beginPath();
+                    const c = meta.obb.corners;
+                    overlayCtx.moveTo(c[0].x, c[0].y);
+                    overlayCtx.lineTo(c[1].x, c[1].y);
+                    overlayCtx.lineTo(c[2].x, c[2].y);
+                    overlayCtx.lineTo(c[3].x, c[3].y);
+                    overlayCtx.closePath();
+                    overlayCtx.stroke();
+                    overlayCtx.setLineDash([]);
+                    overlayCtx.restore();
+                }
+
+                // Pivot marker
+                const pivot = state.pivots.get(slice.id);
+                if (pivot) {
+                    const px = slice.x + pivot.x;
+                    const py = slice.y + pivot.y;
+                    overlayCtx.save();
+                    overlayCtx.strokeStyle = '#00d9ff';
+                    overlayCtx.lineWidth = 2;
+                    overlayCtx.beginPath();
+                    overlayCtx.moveTo(px - 6, py);
+                    overlayCtx.lineTo(px + 6, py);
+                    overlayCtx.moveTo(px, py - 6);
+                    overlayCtx.lineTo(px, py + 6);
+                    overlayCtx.stroke();
+                    overlayCtx.restore();
+                }
             });
 
             overlayCtx.setLineDash([]);
@@ -718,6 +1651,36 @@
                 overlayCtx.fillStyle = '#1a1b26';
                 overlayCtx.fillText(sizeText, x + 4, y - 6);
             }
+
+            // Resize handles for active slice (only if single selection)
+            if (state.selectedSliceIds.size === 1) {
+                const activeId = [...state.selectedSliceIds][0];
+                const slice = state.slices.find(s => s.id === activeId);
+                if (slice) {
+                    const size = 6 / state.view.scale;
+                    const half = size / 2;
+                    const points = [
+                        { k: 'nw', x: slice.x, y: slice.y },
+                        { k: 'n', x: slice.x + slice.width / 2, y: slice.y },
+                        { k: 'ne', x: slice.x + slice.width, y: slice.y },
+                        { k: 'e', x: slice.x + slice.width, y: slice.y + slice.height / 2 },
+                        { k: 'se', x: slice.x + slice.width, y: slice.y + slice.height },
+                        { k: 's', x: slice.x + slice.width / 2, y: slice.y + slice.height },
+                        { k: 'sw', x: slice.x, y: slice.y + slice.height },
+                        { k: 'w', x: slice.x, y: slice.y + slice.height / 2 }
+                    ];
+
+                    overlayCtx.save();
+                    overlayCtx.fillStyle = '#00d9ff';
+                    overlayCtx.strokeStyle = '#1a1b26';
+                    overlayCtx.lineWidth = 2 / state.view.scale;
+                    points.forEach(p => {
+                        overlayCtx.fillRect(p.x - half, p.y - half, size, size);
+                        overlayCtx.strokeRect(p.x - half, p.y - half, size, size);
+                    });
+                    overlayCtx.restore();
+                }
+            }
         }
 
         // ============================================
@@ -737,12 +1700,100 @@
             return slice;
         }
 
+        function normalizeRectFromTwoPoints(a, b) {
+            const x = Math.min(a.x, b.x);
+            const y = Math.min(a.y, b.y);
+            const width = Math.abs(b.x - a.x);
+            const height = Math.abs(b.y - a.y);
+            return { x, y, width, height };
+        }
+
+        function getActiveSlice() {
+            if (state.selectedSliceIds.size !== 1) return null;
+            const id = [...state.selectedSliceIds][0];
+            return state.slices.find(s => s.id === id) || null;
+        }
+
+        function getHandleAtPoint(slice, x, y) {
+            const size = 10 / state.view.scale;
+            const half = size / 2;
+            const handles = [
+                { k: 'nw', x: slice.x, y: slice.y },
+                { k: 'n', x: slice.x + slice.width / 2, y: slice.y },
+                { k: 'ne', x: slice.x + slice.width, y: slice.y },
+                { k: 'e', x: slice.x + slice.width, y: slice.y + slice.height / 2 },
+                { k: 'se', x: slice.x + slice.width, y: slice.y + slice.height },
+                { k: 's', x: slice.x + slice.width / 2, y: slice.y + slice.height },
+                { k: 'sw', x: slice.x, y: slice.y + slice.height },
+                { k: 'w', x: slice.x, y: slice.y + slice.height / 2 }
+            ];
+            for (const h of handles) {
+                if (x >= h.x - half && x <= h.x + half && y >= h.y - half && y <= h.y + half) {
+                    return h.k;
+                }
+            }
+            return null;
+        }
+
+        function resizeSliceWithHandle(slice, handle, startRect, startPoint, currentPoint) {
+            const dx = currentPoint.x - startPoint.x;
+            const dy = currentPoint.y - startPoint.y;
+            let x = startRect.x;
+            let y = startRect.y;
+            let w = startRect.width;
+            let h = startRect.height;
+
+            const minSize = 2;
+
+            if (handle.includes('w')) {
+                x = startRect.x + dx;
+                w = startRect.width - dx;
+            }
+            if (handle.includes('e')) {
+                w = startRect.width + dx;
+            }
+            if (handle.includes('n')) {
+                y = startRect.y + dy;
+                h = startRect.height - dy;
+            }
+            if (handle.includes('s')) {
+                h = startRect.height + dy;
+            }
+
+            // Normalize if user dragged past edges
+            if (w < 0) {
+                x = x + w;
+                w = Math.abs(w);
+                handle = handle.replace('w', 'e').replace('e', 'w');
+            }
+            if (h < 0) {
+                y = y + h;
+                h = Math.abs(h);
+                handle = handle.replace('n', 's').replace('s', 'n');
+            }
+
+            w = Math.max(minSize, w);
+            h = Math.max(minSize, h);
+
+            const clamped = clampRectToImage({ x, y, width: w, height: h });
+            slice.x = clamped.x;
+            slice.y = clamped.y;
+            slice.width = clamped.width;
+            slice.height = clamped.height;
+        }
+
         function deleteSelectedSlices() {
             if (state.selectedSliceIds.size === 0) return;
+
+            for (const id of state.selectedSliceIds) {
+                state.pivots.delete(id);
+                state.sliceMeta.delete(id);
+            }
 
             state.slices = state.slices.filter(s => !state.selectedSliceIds.has(s.id));
             const count = state.selectedSliceIds.size;
             state.selectedSliceIds.clear();
+            state.activeSliceId = null;
             renderOverlay();
             updateUI();
             showToast(`Deleted ${count} slice(s)`, 'success');
@@ -751,6 +1802,9 @@
         function clearAllSlices() {
             state.slices = [];
             state.selectedSliceIds.clear();
+            state.activeSliceId = null;
+            state.pivots.clear();
+            state.sliceMeta.clear();
             renderOverlay();
             updateUI();
             showToast('All slices cleared', 'success');
@@ -780,6 +1834,10 @@
                 try {
                     const threshold = parseInt(elements.alphaThreshold.value) || 10;
                     const minSize = parseInt(elements.minSize.value) || 5;
+                    const noiseCleanup = clampInt(elements.noiseCleanup?.value ?? 0, 0, 6);
+                    const bridgeGaps = clampInt(elements.bridgeGaps?.value ?? 0, 0, 10);
+                    const mergeNearby = clampInt(elements.mergeNearby?.value ?? 0, 0, 25);
+                    const colorTolerance = clampInt(elements.colorTolerance?.value ?? 40, 0, 255);
 
                     // Get image data
                     const tempCanvas = document.createElement('canvas');
@@ -794,18 +1852,40 @@
 
                     // Create binary mask
                     const visited = new Uint8Array(width * height);
-                    const mask = new Uint8Array(width * height);
+                    let mask = new Uint8Array(width * height);
 
                     for (let i = 0; i < width * height; i++) {
                         mask[i] = data[i * 4 + 3] > threshold ? 1 : 0;
                     }
 
+                    // "Semantic" segmentation improvements (heuristics)
+                    // 1) Noise cleanup (opening)
+                    if (noiseCleanup > 0) {
+                        mask = openMask(mask, width, height, noiseCleanup);
+                    }
+                    // 2) Bridge small gaps (closing)
+                    if (bridgeGaps > 0) {
+                        mask = closeMask(mask, width, height, bridgeGaps);
+                    }
+
                     // Flood fill to find connected components
-                    const boundingBoxes = [];
+                    const components = [];
+
+                    function getPixelRGB(x, y) {
+                        const idx = (y * width + x) * 4;
+                        return { r: data[idx], g: data[idx + 1], b: data[idx + 2] };
+                    }
 
                     function floodFill(startX, startY) {
                         const stack = [[startX, startY]];
                         let minX = startX, maxX = startX, minY = startY, maxY = startY;
+                        let area = 0;
+                        let sumR = 0, sumG = 0, sumB = 0;
+                        let sumX = 0, sumY = 0;
+
+                        // store a sampled point cloud for OBB
+                        const points = [];
+                        let sampleStride = 1;
 
                         while (stack.length > 0) {
                             const [x, y] = stack.pop();
@@ -820,47 +1900,204 @@
                             minY = Math.min(minY, y);
                             maxY = Math.max(maxY, y);
 
+                            area++;
+                            sumX += x;
+                            sumY += y;
+                            const p = (idx * 4);
+                            sumR += data[p];
+                            sumG += data[p + 1];
+                            sumB += data[p + 2];
+
+                            // Adaptive sampling to avoid huge memory use
+                            if (area === 5000) sampleStride = 2;
+                            if (area === 20000) sampleStride = 4;
+                            if (area === 80000) sampleStride = 8;
+                            if (area % sampleStride === 0) {
+                                points.push(x, y);
+                            }
+
                             stack.push([x + 1, y]);
                             stack.push([x - 1, y]);
                             stack.push([x, y + 1]);
                             stack.push([x, y - 1]);
                         }
 
-                        return { minX, maxX, minY, maxY };
+                        const bboxWidth = maxX - minX + 1;
+                        const bboxHeight = maxY - minY + 1;
+                        const cx = area ? (sumX / area) : (minX + bboxWidth / 2);
+                        const cy = area ? (sumY / area) : (minY + bboxHeight / 2);
+                        const mean = area ? { r: sumR / area, g: sumG / area, b: sumB / area } : getPixelRGB(startX, startY);
+                        return {
+                            bbox: { x: minX, y: minY, width: bboxWidth, height: bboxHeight },
+                            area,
+                            centroid: { x: cx, y: cy },
+                            mean,
+                            points
+                        };
                     }
 
                     for (let y = 0; y < height; y++) {
                         for (let x = 0; x < width; x++) {
                             const idx = y * width + x;
                             if (!visited[idx] && mask[idx]) {
-                                const bbox = floodFill(x, y);
-                                const bboxWidth = bbox.maxX - bbox.minX + 1;
-                                const bboxHeight = bbox.maxY - bbox.minY + 1;
-
-                                if (bboxWidth >= minSize && bboxHeight >= minSize) {
-                                    boundingBoxes.push({
-                                        x: bbox.minX,
-                                        y: bbox.minY,
-                                        width: bboxWidth,
-                                        height: bboxHeight
-                                    });
+                                const comp = floodFill(x, y);
+                                if (comp.bbox.width >= minSize && comp.bbox.height >= minSize) {
+                                    components.push(comp);
                                 }
                             }
                         }
+                    }
+
+                    // Proximity + color merging (associate near fragments/spores)
+                    // Merge small components into nearby larger ones if close and color-similar.
+                    if (mergeNearby > 0 && components.length > 1) {
+                        // sort by area descending for stable "main body" selection
+                        components.sort((a, b) => b.area - a.area);
+                        const removed = new Set();
+
+                        for (let i = components.length - 1; i >= 0; i--) {
+                            const c = components[i];
+                            if (removed.has(i)) continue;
+                            // only attempt to merge comparatively small pieces
+                            if (c.area > 2000) continue;
+
+                            let bestJ = -1;
+                            let bestD = Infinity;
+
+                            for (let j = 0; j < i; j++) {
+                                const host = components[j];
+                                const d = bboxGapDistance(c.bbox, host.bbox);
+                                if (d > mergeNearby) continue;
+                                const cd = colorDistance255(c.mean, host.mean);
+                                if (cd > colorTolerance) continue;
+                                if (d < bestD) {
+                                    bestD = d;
+                                    bestJ = j;
+                                }
+                            }
+
+                            if (bestJ >= 0) {
+                                const host = components[bestJ];
+                                // bbox union
+                                const x1 = Math.min(host.bbox.x, c.bbox.x);
+                                const y1 = Math.min(host.bbox.y, c.bbox.y);
+                                const x2 = Math.max(host.bbox.x + host.bbox.width, c.bbox.x + c.bbox.width);
+                                const y2 = Math.max(host.bbox.y + host.bbox.height, c.bbox.y + c.bbox.height);
+                                host.bbox = { x: x1, y: y1, width: x2 - x1, height: y2 - y1 };
+
+                                // weighted mean color & centroid
+                                const total = host.area + c.area;
+                                host.mean = {
+                                    r: (host.mean.r * host.area + c.mean.r * c.area) / total,
+                                    g: (host.mean.g * host.area + c.mean.g * c.area) / total,
+                                    b: (host.mean.b * host.area + c.mean.b * c.area) / total
+                                };
+                                host.centroid = {
+                                    x: (host.centroid.x * host.area + c.centroid.x * c.area) / total,
+                                    y: (host.centroid.y * host.area + c.centroid.y * c.area) / total
+                                };
+                                host.area = total;
+
+                                // merge point samples (cap size)
+                                if (host.points && c.points) {
+                                    const maxPoints = 120000; // coordinates length, not point count
+                                    if (host.points.length + c.points.length <= maxPoints) {
+                                        host.points.push(...c.points);
+                                    }
+                                }
+
+                                removed.add(i);
+                            }
+                        }
+
+                        const merged = [];
+                        for (let i = 0; i < components.length; i++) {
+                            if (!removed.has(i)) merged.push(components[i]);
+                        }
+                        components.length = 0;
+                        components.push(...merged);
+                    }
+
+                    // Sort components by requested X order (true X-first ordering)
+                    const order = (elements.detectOrder && elements.detectOrder.value) ? elements.detectOrder.value : 'ltr';
+                    components.sort((a, b) => {
+                        const dx = order === 'rtl' ? (b.bbox.x - a.bbox.x) : (a.bbox.x - b.bbox.x);
+                        if (dx !== 0) return dx;
+                        return a.bbox.y - b.bbox.y;
+                    });
+
+                    // Parent-child nesting (bbox containment heuristic)
+                    // Build on components (not slice ids yet)
+                    const parents = new Array(components.length).fill(-1);
+                    const byArea = components
+                        .map((c, idx) => ({ idx, area: c.area }))
+                        .sort((a, b) => b.area - a.area);
+
+                    for (let k = 0; k < byArea.length; k++) {
+                        const childIdx = byArea[k].idx;
+                        const child = components[childIdx];
+                        let bestParent = -1;
+                        let bestArea = Infinity;
+
+                        for (let m = 0; m < byArea.length; m++) {
+                            const parentIdx = byArea[m].idx;
+                            if (parentIdx === childIdx) continue;
+                            const parent = components[parentIdx];
+                            if (parent.area <= child.area) continue;
+                            // containment by bbox
+                            const contained =
+                                child.bbox.x >= parent.bbox.x &&
+                                child.bbox.y >= parent.bbox.y &&
+                                (child.bbox.x + child.bbox.width) <= (parent.bbox.x + parent.bbox.width) &&
+                                (child.bbox.y + child.bbox.height) <= (parent.bbox.y + parent.bbox.height);
+                            if (!contained) continue;
+                            if (parent.area < bestArea) {
+                                bestArea = parent.area;
+                                bestParent = parentIdx;
+                            }
+                        }
+                        parents[childIdx] = bestParent;
                     }
 
                     // Add slices
                     state.slices = [];
                     state.selectedSliceIds.clear();
                     state.nextSliceId = 1;
+                    state.sliceMeta.clear();
 
-                    boundingBoxes.forEach(bbox => {
-                        addSlice(bbox.x, bbox.y, bbox.width, bbox.height);
+                    const sliceIdsByComponent = new Array(components.length);
+                    components.forEach((comp, idx) => {
+                        const s = addSlice(comp.bbox.x, comp.bbox.y, comp.bbox.width, comp.bbox.height);
+                        if (!s) return;
+                        sliceIdsByComponent[idx] = s.id;
+                        const obb = computeObbFromPoints(comp.points);
+                        state.sliceMeta.set(s.id, {
+                            obb,
+                            parentId: null,
+                            childrenIds: []
+                        });
                     });
+
+                    // Resolve parent-child using slice ids
+                    for (let i = 0; i < components.length; i++) {
+                        const childSliceId = sliceIdsByComponent[i];
+                        if (!childSliceId) continue;
+                        const pIdx = parents[i];
+                        if (pIdx < 0) continue;
+                        const parentSliceId = sliceIdsByComponent[pIdx];
+                        if (!parentSliceId) continue;
+                        const childMeta = state.sliceMeta.get(childSliceId);
+                        const parentMeta = state.sliceMeta.get(parentSliceId);
+                        if (childMeta) childMeta.parentId = parentSliceId;
+                        if (parentMeta) parentMeta.childrenIds.push(childSliceId);
+                    }
 
                     renderOverlay();
                     updateUI();
-                    showToast(`Found ${boundingBoxes.length} sprites`, 'success');
+                    const linked = parents.filter(p => p >= 0).length;
+                    const mergedHint = mergeNearby > 0 ? ' (with proximity merging)' : '';
+                    const linkHint = linked > 0 ? `, ${linked} nested` : '';
+                    showToast(`Found ${components.length} sprites${mergedHint}${linkHint}`, 'success');
                 } catch (err) {
                     showToast('Error during auto-detection: ' + err.message, 'error');
                 } finally {
@@ -890,9 +2127,11 @@
                     maxHeight = Math.max(maxHeight, slice.height);
                 });
 
+                const sheetId = sanitizeSheetId(state.sheetId);
+
                 // Create ZIP
                 const zip = new JSZip();
-                const folder = zip.folder('sprites');
+                const folder = zip.folder(sheetId);
 
                 // Process each slice
                 for (let i = 0; i < state.slices.length; i++) {
@@ -908,12 +2147,29 @@
                     const offsetX = Math.floor((maxWidth - slice.width) / 2);
                     const offsetY = Math.floor((maxHeight - slice.height) / 2);
 
-                    // Draw slice centered
-                    ctx.drawImage(
-                        state.image,
-                        slice.x, slice.y, slice.width, slice.height,
-                        offsetX, offsetY, slice.width, slice.height
-                    );
+                    // Draw slice centered (apply mirror options if enabled)
+                    const mirrorX = !!state.view.mirrorX;
+                    const mirrorY = !!state.view.mirrorY;
+
+                    ctx.save();
+                    if (mirrorX || mirrorY) {
+                        const tx = offsetX + (mirrorX ? slice.width : 0);
+                        const ty = offsetY + (mirrorY ? slice.height : 0);
+                        ctx.translate(tx, ty);
+                        ctx.scale(mirrorX ? -1 : 1, mirrorY ? -1 : 1);
+                        ctx.drawImage(
+                            state.image,
+                            slice.x, slice.y, slice.width, slice.height,
+                            0, 0, slice.width, slice.height
+                        );
+                    } else {
+                        ctx.drawImage(
+                            state.image,
+                            slice.x, slice.y, slice.width, slice.height,
+                            offsetX, offsetY, slice.width, slice.height
+                        );
+                    }
+                    ctx.restore();
 
                     // Convert to blob
                     const blob = await new Promise(resolve => {
@@ -921,15 +2177,15 @@
                     });
 
                     // Add to ZIP
-                    const filename = `sprite_${String(i + 1).padStart(3, '0')}.png`;
+                    const filename = `${sheetId}_${String(i + 1).padStart(3, '0')}.png`;
                     folder.file(filename, blob);
                 }
 
                 // Generate and download ZIP
                 const zipBlob = await zip.generateAsync({ type: 'blob' });
-                saveAs(zipBlob, 'sprites.zip');
+                saveAs(zipBlob, `${sheetId}.zip`);
 
-                showToast(`Exported ${state.slices.length} sprites (${maxWidth}×${maxHeight}px each)`, 'success');
+                showToast(`Exported ${state.slices.length} sprites as ${sheetId}.zip (${maxWidth}×${maxHeight}px each)`, 'success');
             } catch (err) {
                 showToast('Export failed: ' + err.message, 'error');
             } finally {
@@ -940,6 +2196,76 @@
         // ============================================
         // EVENT HANDLERS
         // ============================================
+
+        // View / options controls
+        function setBackgroundMode(mode) {
+            elements.canvasContainer.classList.remove('bg-checker', 'bg-black', 'bg-white');
+            if (mode === 'black') elements.canvasContainer.classList.add('bg-black');
+            else if (mode === 'white') elements.canvasContainer.classList.add('bg-white');
+            else elements.canvasContainer.classList.add('bg-checker');
+        }
+
+        elements.resetViewBtn.addEventListener('click', resetView);
+
+        elements.bgMode.addEventListener('change', () => {
+            setBackgroundMode(elements.bgMode.value);
+        });
+
+        elements.onionSkinToggle.addEventListener('change', () => {
+            state.options.onionSkin = !!elements.onionSkinToggle.checked;
+            renderOverlay();
+        });
+
+        elements.smartSnapToggle.addEventListener('change', () => {
+            state.options.smartSnap = !!elements.smartSnapToggle.checked;
+        });
+
+        if (elements.showObbToggle) {
+            elements.showObbToggle.addEventListener('change', () => {
+                state.options.showObb = !!elements.showObbToggle.checked;
+                renderOverlay();
+            });
+        }
+
+        elements.pivotEditToggle.addEventListener('change', () => {
+            state.options.pivotEdit = !!elements.pivotEditToggle.checked;
+            elements.mainCanvas.style.cursor = state.options.pivotEdit ? 'cell' : 'crosshair';
+        });
+
+        // Sheet ID
+        if (elements.sheetIdInput) {
+            elements.sheetIdInput.addEventListener('input', () => {
+                state.sheetId = sanitizeSheetId(elements.sheetIdInput.value);
+            });
+            elements.sheetIdInput.addEventListener('blur', () => {
+                elements.sheetIdInput.value = sanitizeSheetId(elements.sheetIdInput.value);
+                state.sheetId = elements.sheetIdInput.value;
+            });
+        }
+
+        // Mirror toggles (view only)
+        elements.mirrorXToggle.addEventListener('change', () => {
+            state.view.mirrorX = !!elements.mirrorXToggle.checked;
+            applyViewTransform();
+            renderOverlay();
+        });
+
+        elements.mirrorYToggle.addEventListener('change', () => {
+            state.view.mirrorY = !!elements.mirrorYToggle.checked;
+            applyViewTransform();
+            renderOverlay();
+        });
+
+        // Image background (display only)
+        elements.imageBgToggle.addEventListener('change', () => {
+            state.options.imageBgEnabled = !!elements.imageBgToggle.checked;
+            renderMainCanvas();
+        });
+
+        elements.imageBgColor.addEventListener('input', () => {
+            state.options.imageBgColor = elements.imageBgColor.value;
+            if (state.options.imageBgEnabled) renderMainCanvas();
+        });
 
         // File input handlers
         elements.loadImageBtn.addEventListener('click', () => elements.fileInput.click());
@@ -991,9 +2317,54 @@
 
         // Canvas mouse events
         elements.mainCanvas.addEventListener('mousedown', (e) => {
-            if (!state.image || state.mode !== 'manual') return;
+            if (!state.image) return;
+
+            // Middle mouse pan
+            if (e.button === 1) {
+                e.preventDefault();
+                state.pan.active = true;
+                state.pan.startClientX = e.clientX;
+                state.pan.startClientY = e.clientY;
+                state.pan.startOffsetX = state.view.offsetX;
+                state.pan.startOffsetY = state.view.offsetY;
+                return;
+            }
+
+            if (state.mode !== 'manual') return;
 
             const coords = getCanvasCoordinates(e);
+
+            // Pivot edit mode: click inside active slice sets pivot
+            if (state.options.pivotEdit && state.selectedSliceIds.size === 1) {
+                const slice = getActiveSlice();
+                if (slice && coords.x >= slice.x && coords.x <= slice.x + slice.width && coords.y >= slice.y && coords.y <= slice.y + slice.height) {
+                    const px = clamp(Math.round(coords.x - slice.x), 0, slice.width);
+                    const py = clamp(Math.round(coords.y - slice.y), 0, slice.height);
+                    state.pivots.set(slice.id, { x: px, y: py });
+                    renderOverlay();
+                    showToast(`Pivot set for slice #${slice.id} (${px}, ${py})`, 'success');
+                }
+                return;
+            }
+
+            // Resize handles if single selection
+            if (state.selectedSliceIds.size === 1) {
+                const slice = getActiveSlice();
+                if (slice) {
+                    const handle = getHandleAtPoint(slice, coords.x, coords.y);
+                    if (handle) {
+                        e.preventDefault();
+                        state.resize.active = true;
+                        state.resize.sliceId = slice.id;
+                        state.resize.handle = handle;
+                        state.resize.start = { x: coords.x, y: coords.y };
+                        state.resize.startRect = { x: slice.x, y: slice.y, width: slice.width, height: slice.height };
+                        const pivot = state.pivots.get(slice.id);
+                        state.resize.startPivotAbs = pivot ? { x: slice.x + pivot.x, y: slice.y + pivot.y } : null;
+                        return;
+                    }
+                }
+            }
             const clickedSlice = findSliceAtPoint(coords.x, coords.y);
 
             if (clickedSlice) {
@@ -1013,6 +2384,7 @@
                     state.selectedSliceIds.clear();
                     state.selectedSliceIds.add(clickedSlice.id);
                 }
+                state.activeSliceId = clickedSlice.id;
                 renderOverlay();
                 updateUI();
             } else {
@@ -1028,38 +2400,106 @@
             }
         });
 
-        elements.mainCanvas.addEventListener('mousemove', (e) => {
-            if (!state.isDragging) return;
-            state.dragCurrent = getCanvasCoordinates(e);
-            renderOverlay();
-        });
+        function onGlobalMouseMove(e) {
+            if (state.pan.active) {
+                const dx = e.clientX - state.pan.startClientX;
+                const dy = e.clientY - state.pan.startClientY;
+                state.view.offsetX = state.pan.startOffsetX + dx;
+                state.view.offsetY = state.pan.startOffsetY + dy;
+                applyViewTransform();
+                return;
+            }
 
-        elements.mainCanvas.addEventListener('mouseup', (e) => {
+            if (state.resize.active) {
+                const slice = state.slices.find(s => s.id === state.resize.sliceId);
+                if (!slice) return;
+                const coords = getImageCoordinatesFromClient(e.clientX, e.clientY);
+                resizeSliceWithHandle(slice, state.resize.handle, state.resize.startRect, state.resize.start, coords);
+                const absPivot = state.resize.startPivotAbs;
+                if (absPivot) {
+                    const localX = clamp(Math.round(absPivot.x - slice.x), 0, slice.width);
+                    const localY = clamp(Math.round(absPivot.y - slice.y), 0, slice.height);
+                    state.pivots.set(slice.id, { x: localX, y: localY });
+                }
+                renderOverlay();
+                updateUI();
+                return;
+            }
+
+            if (state.isDragging) {
+                state.dragCurrent = getImageCoordinatesFromClient(e.clientX, e.clientY);
+                renderOverlay();
+            }
+        }
+
+        function onGlobalMouseUp(e) {
+            if (state.pan.active) {
+                state.pan.active = false;
+                return;
+            }
+
+            if (state.resize.active) {
+                state.resize.active = false;
+                state.resize.sliceId = null;
+                state.resize.handle = null;
+                state.resize.start = null;
+                state.resize.startRect = null;
+                state.resize.startPivotAbs = null;
+                renderOverlay();
+                updateUI();
+                return;
+            }
+
             if (!state.isDragging) return;
 
-            const coords = getCanvasCoordinates(e);
+            const coords = getImageCoordinatesFromClient(e.clientX, e.clientY);
             state.dragCurrent = coords;
 
-            const x = Math.min(state.dragStart.x, state.dragCurrent.x);
-            const y = Math.min(state.dragStart.y, state.dragCurrent.y);
-            const width = Math.abs(state.dragCurrent.x - state.dragStart.x);
-            const height = Math.abs(state.dragCurrent.y - state.dragStart.y);
+            const rect = normalizeRectFromTwoPoints(state.dragStart, state.dragCurrent);
 
             // Clamp to image bounds
-            const clampedX = Math.max(0, x);
-            const clampedY = Math.max(0, y);
-            const clampedWidth = Math.min(width, state.image.width - clampedX);
-            const clampedHeight = Math.min(height, state.image.height - clampedY);
+            const clamped = clampRectToImage(rect);
 
-            const slice = addSlice(clampedX, clampedY, clampedWidth, clampedHeight);
+            // Smart snapping: trim to content inside the drawn rect
+            let finalRect = clamped;
+            if (state.options.smartSnap) {
+                const threshold = parseInt(elements.alphaThreshold.value) || 10;
+                const trimmed = trimRectToContent(clamped, threshold);
+                if (trimmed) {
+                    finalRect = trimmed;
+                } else {
+                    showToast('Smart snapping: no non-transparent pixels found in selection', 'error');
+                    state.isDragging = false;
+                    renderOverlay();
+                    updateUI();
+                    return;
+                }
+            }
+
+            const slice = addSlice(finalRect.x, finalRect.y, finalRect.width, finalRect.height);
             if (slice) {
+                state.selectedSliceIds.clear();
+                state.selectedSliceIds.add(slice.id);
+                state.activeSliceId = slice.id;
                 showToast(`Slice #${slice.id} created (${slice.width}×${slice.height}px)`, 'success');
             }
 
             state.isDragging = false;
             renderOverlay();
             updateUI();
+        }
+
+        window.addEventListener('mousemove', onGlobalMouseMove);
+        window.addEventListener('mouseup', onGlobalMouseUp);
+
+        elements.mainCanvas.addEventListener('mousemove', (e) => {
+            // Keep existing behavior if needed, but global listeners handle drag now.
+            if (!state.isDragging || state.pan.active || state.resize.active) return;
+            state.dragCurrent = getCanvasCoordinates(e);
+            renderOverlay();
         });
+
+        // Mouseup handled globally now
 
         elements.mainCanvas.addEventListener('mouseleave', () => {
             if (state.isDragging) {
@@ -1067,6 +2507,37 @@
                 renderOverlay();
             }
         });
+
+        // Zoom with mouse wheel (around cursor)
+        elements.canvasContainer.addEventListener('wheel', (e) => {
+            if (!state.image) return;
+            // Only zoom when cursor is over the canvas wrapper
+            const rect = elements.canvasWrapper.getBoundingClientRect();
+            if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+                return;
+            }
+            e.preventDefault();
+
+            const baseLeft = rect.left - state.view.offsetX;
+            const baseTop = rect.top - state.view.offsetY;
+            const s = state.view.scale;
+
+            const imgX = (e.clientX - rect.left) / s;
+            const imgY = (e.clientY - rect.top) / s;
+
+            const zoomIntensity = 0.12;
+            const delta = e.deltaY;
+            const factor = delta > 0 ? (1 - zoomIntensity) : (1 + zoomIntensity);
+            const newScale = clamp(s * factor, state.view.minScale, state.view.maxScale);
+
+            // Keep cursor point stable
+            state.view.offsetX = (e.clientX - baseLeft) - imgX * newScale;
+            state.view.offsetY = (e.clientY - baseTop) - imgY * newScale;
+            state.view.scale = newScale;
+
+            applyViewTransform();
+            renderOverlay();
+        }, { passive: false });
 
         // Keyboard events
         document.addEventListener('keydown', (e) => {
@@ -1081,6 +2552,7 @@
             // Escape - deselect
             if (e.key === 'Escape') {
                 state.selectedSliceIds.clear();
+                state.activeSliceId = null;
                 renderOverlay();
                 updateUI();
             }
@@ -1089,12 +2561,288 @@
             if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
                 e.preventDefault();
                 state.slices.forEach(s => state.selectedSliceIds.add(s.id));
+                state.activeSliceId = state.slices.length ? state.slices[state.slices.length - 1].id : null;
                 renderOverlay();
                 updateUI();
             }
+
+            // Nudging with arrow keys (1px)
+            if (state.selectedSliceIds.size > 0 && ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+                e.preventDefault();
+                const dx = e.key === 'ArrowLeft' ? -1 : e.key === 'ArrowRight' ? 1 : 0;
+                const dy = e.key === 'ArrowUp' ? -1 : e.key === 'ArrowDown' ? 1 : 0;
+
+                state.slices.forEach(slice => {
+                    if (!state.selectedSliceIds.has(slice.id)) return;
+                    slice.x = clamp(slice.x + dx, 0, state.image.width - slice.width);
+                    slice.y = clamp(slice.y + dy, 0, state.image.height - slice.height);
+                });
+                renderOverlay();
+            }
+        });
+
+        // Auto-trim selected slice
+        function autoTrimSelected() {
+            const slice = getActiveSlice();
+            if (!slice) {
+                showToast('Select exactly one slice to auto-trim', 'error');
+                return;
+            }
+            const threshold = parseInt(elements.alphaThreshold.value) || 10;
+            const trimmed = trimRectToContent({ x: slice.x, y: slice.y, width: slice.width, height: slice.height }, threshold);
+            if (!trimmed) {
+                showToast('Auto-trim: no non-transparent pixels found', 'error');
+                return;
+            }
+
+            const pivot = state.pivots.get(slice.id);
+            const absPivot = pivot ? { x: slice.x + pivot.x, y: slice.y + pivot.y } : null;
+
+            slice.x = trimmed.x;
+            slice.y = trimmed.y;
+            slice.width = trimmed.width;
+            slice.height = trimmed.height;
+
+            if (absPivot) {
+                const localX = clamp(Math.round(absPivot.x - slice.x), 0, slice.width);
+                const localY = clamp(Math.round(absPivot.y - slice.y), 0, slice.height);
+                state.pivots.set(slice.id, { x: localX, y: localY });
+            }
+
+            renderOverlay();
+            showToast(`Auto-trimmed slice #${slice.id} to ${slice.width}×${slice.height}`, 'success');
+        }
+
+        elements.autoTrimBtn.addEventListener('click', autoTrimSelected);
+
+        // Duplicate detection
+        function fnv1aHashBytes(bytes) {
+            let hash = 0x811c9dc5;
+            for (let i = 0; i < bytes.length; i++) {
+                hash ^= bytes[i];
+                hash = (hash * 0x01000193) >>> 0;
+            }
+            return hash >>> 0;
+        }
+
+        function getSlicePixelBytes(slice) {
+            const imgData = ensureImageData();
+            if (!imgData) return null;
+            const w = imgData.width;
+            const data = imgData.data;
+            const out = new Uint8Array(slice.width * slice.height * 4);
+            let o = 0;
+            for (let y = 0; y < slice.height; y++) {
+                const yy = slice.y + y;
+                let idx = (yy * w + slice.x) * 4;
+                for (let x = 0; x < slice.width; x++) {
+                    out[o++] = data[idx++];
+                    out[o++] = data[idx++];
+                    out[o++] = data[idx++];
+                    out[o++] = data[idx++];
+                }
+            }
+            return out;
+        }
+
+        function detectDuplicates() {
+            if (!state.image || state.slices.length < 2) return;
+
+            showLoading(true);
+            setTimeout(() => {
+                try {
+                    const buckets = new Map();
+                    const meta = new Map();
+                    for (const slice of state.slices) {
+                        const bytes = getSlicePixelBytes(slice);
+                        if (!bytes) continue;
+                        const key = `${slice.width}x${slice.height}:${fnv1aHashBytes(bytes)}`;
+                        if (!buckets.has(key)) buckets.set(key, []);
+                        buckets.get(key).push(slice.id);
+                        meta.set(slice.id, bytes);
+                    }
+
+                    const duplicateGroups = [];
+                    for (const [key, ids] of buckets.entries()) {
+                        if (ids.length < 2) continue;
+                        // Confirm equality to avoid hash collisions
+                        const confirmed = [];
+                        for (const id of ids) {
+                            let placed = false;
+                            for (const group of confirmed) {
+                                const a = meta.get(group[0]);
+                                const b = meta.get(id);
+                                if (a.length === b.length) {
+                                    let same = true;
+                                    for (let i = 0; i < a.length; i++) {
+                                        if (a[i] !== b[i]) { same = false; break; }
+                                    }
+                                    if (same) {
+                                        group.push(id);
+                                        placed = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!placed) confirmed.push([id]);
+                        }
+                        confirmed.filter(g => g.length > 1).forEach(g => duplicateGroups.push(g));
+                    }
+
+                    if (duplicateGroups.length === 0) {
+                        showToast('No duplicate frames found', 'success');
+                        return;
+                    }
+
+                    state.selectedSliceIds.clear();
+                    for (const group of duplicateGroups) {
+                        group.forEach(id => state.selectedSliceIds.add(id));
+                    }
+                    renderOverlay();
+                    updateUI();
+
+                    const summary = duplicateGroups
+                        .slice(0, 4)
+                        .map(g => g.map(id => `#${id}`).join(' = '))
+                        .join(' | ');
+                    const more = duplicateGroups.length > 4 ? ` (+${duplicateGroups.length - 4} more)` : '';
+                    showToast(`Duplicates found: ${summary}${more}`, 'success');
+                } catch (err) {
+                    showToast('Duplicate detection failed: ' + err.message, 'error');
+                } finally {
+                    showLoading(false);
+                }
+            }, 30);
+        }
+
+        elements.detectDuplicatesBtn.addEventListener('click', detectDuplicates);
+
+        // Animation preview
+        const previewCtx = elements.previewCanvas.getContext('2d');
+
+        function renderPreviewFrame() {
+            previewCtx.clearRect(0, 0, elements.previewCanvas.width, elements.previewCanvas.height);
+            previewCtx.imageSmoothingEnabled = false;
+
+            if (!state.image || state.preview.frameIds.length === 0) return;
+            const frameId = state.preview.frameIds[state.preview.currentIndex % state.preview.frameIds.length];
+            const slice = state.slices.find(s => s.id === frameId);
+            if (!slice) return;
+
+            const w = elements.previewCanvas.width;
+            const h = elements.previewCanvas.height;
+            const scale = Math.max(1, Math.floor(Math.min(w / slice.width, h / slice.height)));
+
+            const pivot = state.pivots.get(slice.id) || { x: slice.width / 2, y: slice.height / 2 };
+            const centerX = Math.floor(w / 2);
+            const centerY = Math.floor(h / 2);
+
+            const drawX = Math.floor(centerX - pivot.x * scale);
+            const drawY = Math.floor(centerY - pivot.y * scale);
+
+            previewCtx.drawImage(
+                state.image,
+                slice.x, slice.y, slice.width, slice.height,
+                drawX, drawY, slice.width * scale, slice.height * scale
+            );
+
+            // Pivot marker
+            previewCtx.save();
+            previewCtx.strokeStyle = '#00d9ff';
+            previewCtx.lineWidth = 2;
+            previewCtx.beginPath();
+            previewCtx.moveTo(centerX - 8, centerY);
+            previewCtx.lineTo(centerX + 8, centerY);
+            previewCtx.moveTo(centerX, centerY - 8);
+            previewCtx.lineTo(centerX, centerY + 8);
+            previewCtx.stroke();
+            previewCtx.restore();
+        }
+
+        function stopPreview() {
+            state.preview.isPlaying = false;
+            elements.previewPlayPauseBtn.textContent = 'Play';
+            if (state.preview.timer) {
+                clearInterval(state.preview.timer);
+                state.preview.timer = null;
+            }
+        }
+
+        function startPreview() {
+            if (state.preview.frameIds.length === 0) {
+                showToast('Preview: no frames selected', 'error');
+                return;
+            }
+            stopPreview();
+            state.preview.isPlaying = true;
+            elements.previewPlayPauseBtn.textContent = 'Pause';
+            const fps = clamp(parseInt(elements.previewFps.value) || 12, 1, 60);
+            state.preview.fps = fps;
+            const interval = Math.floor(1000 / fps);
+            state.preview.timer = setInterval(() => {
+                state.preview.currentIndex = (state.preview.currentIndex + 1) % state.preview.frameIds.length;
+                renderPreviewFrame();
+            }, interval);
+        }
+
+        function setPreviewFramesFromSelection() {
+            const ids = [...state.selectedSliceIds].sort((a, b) => a - b);
+            state.preview.frameIds = ids;
+            state.preview.currentIndex = 0;
+            elements.previewFrameCount.textContent = String(ids.length);
+            renderPreviewFrame();
+        }
+
+        function togglePreviewPanel(show) {
+            state.preview.visible = typeof show === 'boolean' ? show : !state.preview.visible;
+            elements.previewPanel.classList.toggle('visible', state.preview.visible);
+            if (!state.preview.visible) {
+                stopPreview();
+            } else {
+                renderPreviewFrame();
+            }
+        }
+
+        elements.togglePreviewBtn.addEventListener('click', () => togglePreviewPanel());
+        elements.closePreviewBtn.addEventListener('click', () => togglePreviewPanel(false));
+        elements.previewUseSelectionBtn.addEventListener('click', setPreviewFramesFromSelection);
+        elements.previewPlayPauseBtn.addEventListener('click', () => {
+            if (state.preview.isPlaying) stopPreview();
+            else startPreview();
+        });
+        elements.previewFps.addEventListener('change', () => {
+            if (state.preview.isPlaying) startPreview();
+        });
+
+        // Drag preview panel
+        elements.previewPanelHeader.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            state.preview.panelDrag.active = true;
+            state.preview.panelDrag.startClientX = e.clientX;
+            state.preview.panelDrag.startClientY = e.clientY;
+            const rect = elements.previewPanel.getBoundingClientRect();
+            state.preview.panelDrag.startLeft = rect.left;
+            state.preview.panelDrag.startTop = rect.top;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!state.preview.panelDrag.active) return;
+            const dx = e.clientX - state.preview.panelDrag.startClientX;
+            const dy = e.clientY - state.preview.panelDrag.startClientY;
+            const left = state.preview.panelDrag.startLeft + dx;
+            const top = state.preview.panelDrag.startTop + dy;
+            elements.previewPanel.style.left = `${left}px`;
+            elements.previewPanel.style.top = `${top}px`;
+            elements.previewPanel.style.bottom = 'auto';
+        });
+
+        window.addEventListener('mouseup', () => {
+            state.preview.panelDrag.active = false;
         });
 
         // Initialize
+        setBackgroundMode(elements.bgMode.value);
+        applyViewTransform();
         updateUI();
     </script>
 </body>
