@@ -68,6 +68,10 @@
             margin-bottom: 0;
         }
 
+        .branding-header h1 {
+            cursor: default;
+        }
+
         .pride-flag {
             display: inline-block;
             width: 32px;
@@ -97,10 +101,17 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            margin-top: 2px;
+            overflow: hidden;
+            max-height: 2000px;
+            opacity: 1;
+            transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
         }
 
-        .section-body {
-            margin-top: 2px;
+        .section-body.collapsed {
+            max-height: 0;
+            opacity: 0;
+            margin-top: 0;
         }
 
         .section-divider {
@@ -168,12 +179,32 @@
             letter-spacing: 1.5px;
             margin: 0 0 12px 0;
             font-weight: 700;
-        }
-
-        .sidebar h2 {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            padding: 4px 0;
+            transition: color 0.2s ease;
+        }
+
+        .sidebar h2:hover {
+            color: #00d9ff;
+        }
+
+        .sidebar h2::after {
+            content: '▼';
+            font-size: 0.7rem;
+            color: #565f89;
+            transition: transform 0.3s ease, color 0.2s ease;
+        }
+
+        .sidebar h2.collapsed::after {
+            transform: rotate(-90deg);
+        }
+
+        .sidebar h2:hover::after {
+            color: #00d9ff;
         }
 
         .btn {
@@ -257,6 +288,59 @@
             border-color: #00d9ff;
             font-weight: 700;
             box-shadow: 0 2px 8px rgba(0, 217, 255, 0.4);
+        }
+
+        .toggle-advanced {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            background: rgba(26, 27, 38, 0.5);
+            border: 1px solid #414868;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #9aa5ce;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-advanced:hover {
+            background: rgba(26, 27, 38, 0.8);
+            border-color: #565f89;
+        }
+
+        .toggle-advanced input[type="checkbox"] {
+            margin: 0;
+        }
+
+        .advanced-options {
+            display: none;
+            margin-top: 10px;
+            padding: 12px;
+            background: rgba(26, 27, 38, 0.4);
+            border: 1px solid #414868;
+            border-radius: 6px;
+            gap: 12px;
+            flex-direction: column;
+        }
+
+        .advanced-options.visible {
+            display: flex;
+        }
+
+        .section-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .group-title {
+            font-size: 0.75rem;
+            color: #565f89;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin: 0;
         }
 
         .info-box {
@@ -826,19 +910,13 @@
             <h1>Zoeinator<span class="pride-flag"></span></h1>
         </div>
 
-        <div class="sidebar-section">
-            <h2>Project</h2>
+        <div class="sidebar-section" data-section="project">
+            <h2 data-toggle="section">Project</h2>
             <div class="section-body">
                 <button class="btn btn-secondary" id="loadImageBtn">📁 Load Image</button>
                 <label class="muted-hint" for="sheetIdInput">Sheet ID (used for export names)</label>
                 <input class="text-input" id="sheetIdInput" type="text" placeholder="e.g. player_run" autocomplete="off">
-            </div>
-            <input type="file" id="fileInput" accept="image/*" style="display: none;">
-        </div>
 
-        <div class="sidebar-section">
-            <h2>Status</h2>
-            <div class="section-body">
                 <div class="stat-grid">
                     <div class="stat-card">
                         <div class="label">Zoom</div>
@@ -857,22 +935,76 @@
                         <div class="value" id="modeLabel">Manual</div>
                     </div>
                 </div>
+            </div>
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        </div>
 
-                <div class="btn-grid">
-                    <button class="btn btn-secondary" id="resetViewBtn" disabled>🧭 Reset View</button>
-                    <button class="btn btn-danger" id="clearSlicesBtn" disabled>🗑️ Clear All</button>
+        <div class="sidebar-section" data-section="tools">
+            <h2 data-toggle="section">Tools</h2>
+            <div class="section-body">
+                <div class="mode-toggle">
+                    <button class="btn btn-secondary active" id="manualModeBtn">✏️ Manual</button>
+                    <button class="btn btn-secondary" id="autoModeBtn">🔍 Auto-Detect</button>
                 </div>
+
+                <div class="auto-detect-options" id="autoDetectOptions" style="display: none;">
+                    <div class="section-group">
+                        <label>
+                            Alpha Threshold (0-255):
+                            <input type="number" id="alphaThreshold" value="10" min="0" max="255">
+                        </label>
+                        <label>
+                            Min Size (px):
+                            <input type="number" id="minSize" value="5" min="1">
+                        </label>
+                        <label>
+                            X Order:
+                            <select id="detectOrder">
+                                <option value="ltr" selected>Left → Right</option>
+                                <option value="rtl">Right → Left</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <label class="toggle-advanced" for="advancedToggle">
+                        <span>⚙️ Advanced Options</span>
+                        <input type="checkbox" id="advancedToggle">
+                    </label>
+
+                    <div class="advanced-options" id="advancedOptions">
+                        <p class="group-title">Morphology</p>
+                        <label>
+                            Noise Cleanup (px):
+                            <input type="number" id="noiseCleanup" value="0" min="0" max="6">
+                        </label>
+                        <label>
+                            Bridge Gaps (px):
+                            <input type="number" id="bridgeGaps" value="0" min="0" max="10">
+                        </label>
+
+                        <p class="group-title">Merging</p>
+                        <label>
+                            Merge Nearby (px):
+                            <input type="number" id="mergeNearby" value="0" min="0" max="25">
+                        </label>
+                        <label>
+                            Color Tolerance (0-255):
+                            <input type="number" id="colorTolerance" value="40" min="0" max="255">
+                        </label>
+
+                        <label class="toggle" style="margin-top: 6px;"><span>Show Oriented Boxes (OBB)</span><input type="checkbox" id="showObbToggle"></label>
+                    </div>
+
+                    <button class="btn btn-secondary" id="runAutoDetect">🚀 Detect Sprites</button>
+                </div>
+
+                <div class="muted-hint">Manual: Draw boxes. Auto: Smart sprite detection.</div>
             </div>
         </div>
 
-        <div class="sidebar-section">
-            <h2>View</h2>
+        <div class="sidebar-section" data-section="view">
+            <h2 data-toggle="section">View Options</h2>
             <div class="section-body">
-                <div class="btn-grid">
-                    <label class="toggle"><span>Mirror X</span><input type="checkbox" id="mirrorXToggle"></label>
-                    <label class="toggle"><span>Mirror Y</span><input type="checkbox" id="mirrorYToggle"></label>
-                </div>
-
                 <div class="select-row">
                     <label for="bgMode" class="muted-hint">Canvas background</label>
                     <select id="bgMode">
@@ -882,74 +1014,37 @@
                     </select>
                 </div>
 
+                <div class="btn-grid">
+                    <label class="toggle"><span>Mirror X</span><input type="checkbox" id="mirrorXToggle"></label>
+                    <label class="toggle"><span>Mirror Y</span><input type="checkbox" id="mirrorYToggle"></label>
+                </div>
+
                 <label class="toggle"><span>Image Background</span><input type="checkbox" id="imageBgToggle"></label>
                 <div class="color-row">
                     <div class="muted-hint">Background color (display only)</div>
                     <input type="color" class="color-picker" id="imageBgColor" value="#000000">
                 </div>
+            </div>
+        </div>
 
-                <div class="section-divider"></div>
-
+        <div class="sidebar-section" data-section="editing">
+            <h2 data-toggle="section">Editing Options</h2>
+            <div class="section-body">
                 <label class="toggle"><span>Onion Skin</span><input type="checkbox" id="onionSkinToggle" checked></label>
                 <label class="toggle"><span>Smart Snapping</span><input type="checkbox" id="smartSnapToggle" checked></label>
                 <label class="toggle"><span>Pivot Edit Mode</span><input type="checkbox" id="pivotEditToggle"></label>
+
+                <div class="section-divider"></div>
+
+                <div class="btn-grid">
+                    <button class="btn btn-secondary" id="resetViewBtn" disabled>🧭 Reset View</button>
+                    <button class="btn btn-danger" id="clearSlicesBtn" disabled>🗑️ Clear All</button>
+                </div>
             </div>
         </div>
 
-        <div class="sidebar-section">
-            <h2>Tools</h2>
-            <div class="section-body">
-                <div class="mode-toggle">
-                    <button class="btn btn-secondary active" id="manualModeBtn">✏️ Manual</button>
-                    <button class="btn btn-secondary" id="autoModeBtn">🔍 Auto-Detect</button>
-                </div>
-
-                <div class="auto-detect-options" id="autoDetectOptions" style="display: none;">
-                    <label>
-                        Alpha Threshold (0-255):
-                        <input type="number" id="alphaThreshold" value="10" min="0" max="255">
-                    </label>
-                    <label>
-                        Min Size (px):
-                        <input type="number" id="minSize" value="5" min="1">
-                    </label>
-                    <label>
-                        X Order:
-                        <select id="detectOrder">
-                            <option value="ltr" selected>Left → Right</option>
-                            <option value="rtl">Right → Left</option>
-                        </select>
-                    </label>
-
-                    <div class="section-divider"></div>
-
-                    <label>
-                        Noise Cleanup (px):
-                        <input type="number" id="noiseCleanup" value="0" min="0" max="6">
-                    </label>
-                    <label>
-                        Bridge Gaps (px):
-                        <input type="number" id="bridgeGaps" value="0" min="0" max="10">
-                    </label>
-                    <label>
-                        Merge Nearby (px):
-                        <input type="number" id="mergeNearby" value="0" min="0" max="25">
-                    </label>
-                    <label>
-                        Color Tolerance (0-255):
-                        <input type="number" id="colorTolerance" value="40" min="0" max="255">
-                    </label>
-
-                    <label class="toggle" style="margin-top: 6px;"><span>Show Oriented Boxes (OBB)</span><input type="checkbox" id="showObbToggle"></label>
-                    <button class="btn btn-secondary" id="runAutoDetect">🚀 Detect Sprites</button>
-                </div>
-
-                <div class="muted-hint">Draw rough boxes, then refine with handles or Auto-Trim.</div>
-            </div>
-        </div>
-
-        <div class="sidebar-section">
-            <h2>Export</h2>
+        <div class="sidebar-section" data-section="operations">
+            <h2 data-toggle="section">Slice Operations</h2>
             <div class="section-body">
                 <div class="btn-grid">
                     <button class="btn btn-secondary" id="deleteSelectedBtn" disabled>❌ Delete</button>
@@ -960,12 +1055,19 @@
                     <button class="btn btn-secondary" id="detectDuplicatesBtn" disabled>🧬 Duplicates</button>
                     <button class="btn btn-secondary" id="togglePreviewBtn" disabled>🎞️ Preview</button>
                 </div>
+            </div>
+        </div>
 
+        <div class="sidebar-section" data-section="export">
+            <h2 data-toggle="section">Export</h2>
+            <div class="section-body">
                 <button class="btn btn-primary" id="exportBtn" disabled>📦 Export ZIP</button>
             </div>
         </div>
 
-        <div class="sidebar-section">
+        <div class="sidebar-section" data-section="shortcuts">
+            <h2 data-toggle="section">Keyboard Shortcuts</h2>
+            <div class="section-body">
                 <div class="shortcuts">
                 <h3>Keyboard Shortcuts</h3>
                 <ul>
@@ -976,6 +1078,7 @@
                     <li><kbd>Mouse Wheel</kbd> - Zoom</li>
                     <li><kbd>Middle Mouse</kbd> - Pan</li>
                 </ul>
+            </div>
             </div>
         </div>
     </aside>
@@ -2308,6 +2411,15 @@
             elements.autoDetectOptions.style.display = 'flex';
         });
 
+        // Advanced toggle for auto-detect
+        const advancedToggle = document.getElementById('advancedToggle');
+        const advancedOptions = document.getElementById('advancedOptions');
+        if (advancedToggle && advancedOptions) {
+            advancedToggle.addEventListener('change', () => {
+                advancedOptions.classList.toggle('visible', advancedToggle.checked);
+            });
+        }
+
         elements.runAutoDetect.addEventListener('click', autoDetectSprites);
 
         // Slice management buttons
@@ -2844,6 +2956,28 @@
         setBackgroundMode(elements.bgMode.value);
         applyViewTransform();
         updateUI();
+
+        // Collapsible sections
+        document.querySelectorAll('[data-toggle="section"]').forEach(header => {
+            header.addEventListener('click', (e) => {
+                const section = header.closest('.sidebar-section');
+                const body = section.querySelector('.section-body');
+                
+                if (body) {
+                    const isCollapsed = body.classList.contains('collapsed');
+                    
+                    if (isCollapsed) {
+                        // Expand
+                        body.classList.remove('collapsed');
+                        header.classList.remove('collapsed');
+                    } else {
+                        // Collapse
+                        body.classList.add('collapsed');
+                        header.classList.add('collapsed');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
